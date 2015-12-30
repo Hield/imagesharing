@@ -5,6 +5,7 @@
 		public $img_src;
 		public $created_on;
 		public $created_by;
+		private $username = NULL;
 
 		public function __construct($id, $img_src, $created_on, $created_by){
 			$this->id = $id;
@@ -46,6 +47,16 @@
 			} else {
 				return new Image($image['id'], $image['img_src'], $image['created_on'], $image['created_by']);
 			}
+		}
+
+		public function get_user(){
+			if (!isset($this->username)){
+				$db = Db::getInstance();
+				$req = $db->prepare('SELECT username FROM users WHERE id = :id');
+				$req->execute(array(':id' => $this->created_by));
+				$this->username = $req->fetch()['username'];
+			}
+			return $this->username;
 		}
 	}
 ?>

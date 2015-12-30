@@ -1,5 +1,5 @@
 <div class="container">
-	<h1>Welcome to Image Share</h1>
+	<h1>Welcome <?php echo (isset($_SESSION['user_id']) ? $_SESSION['username'] : "to Image Share"); ?></h1>
 	<div class="row">
 		<?php foreach($images as $image){ ?>
 			<div class="col-xs-12 col-sm-6 col-md-3" id="<?php echo $image->id ?>">				

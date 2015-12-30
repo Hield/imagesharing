@@ -33,8 +33,8 @@
 			<!-- Right navigation bar -->
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Log in</a></li>
-				<li><a href="#">Register</a></li>
+				<li><a href="#" data-toggle="modal" data-target="#login_form">Log in</a></li>
+				<li><a href="#" data-toggle="modal" data-target="#register_form">Register</a></li>
 			</ul>
 
 		</div>

@@ -1,3 +1,13 @@
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $('#preview-img').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
 $(document).on('change', '.btn-file :file', function() {
   var input = $(this),
       numFiles = input.get(0).files ? input.get(0).files.length : 1,
@@ -23,5 +33,9 @@ $(document).ready( function() {
       $(this).css('border-color', '6699FF');
     }, function(){
       $(this).css('border-color', '#DDDDDD');
+    });
+
+    $("#modal-image-input").change(function(){
+      readURL(this);
     });
 });

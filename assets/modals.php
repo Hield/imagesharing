@@ -20,7 +20,7 @@
 						<div class="input-group">
 							<span class="input-group-btn">
 								<span class="btn btn-default btn-file">
-									Browse&hellip; <input type="file" name="image" multiple>
+									Browse&hellip; <input type="file" name="image" multiple id="modal-image-input">
 								</span>
 							</span>
 							<input type="text" class="form-control" readonly>
@@ -30,7 +30,74 @@
 				</form>
 			</div>
 
+			<div class="modal-preview">
+				<img id="preview-img" src="#" alt="preview image"/>
+			</div>
 		</div>
 
+	</div>
+</div>
+
+<!-- Login form modal -->
+<div id="login_form" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<!-- Modal header -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h3 class="modal-title">Log in</h3>
+			</div>
+
+			<!-- Modal body -->
+			<div class="modal-body">
+				<form role="form" action="<?php echo link_to('users', 'login') ?>" method="post">
+					<div class="form-group">
+						<label for="modal-login-username">Username: </label>
+						<input type="text" class="form-control" name="username" id="modal-login-username">
+					</div>
+					<div class="form-group">
+						<label for="modal-login-pwd">Password: </label>
+						<input type="password" class="form-control" name="pwd" id="modal-login-pwd">
+					</div>
+					<button type="submit" class="btn btn-success">Log in</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Register form modal -->
+<div id="register_form" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<!-- Modal header -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h3 class="modal-title">Register</h3>
+			</div>
+
+			<!-- Modal body -->
+			<div class="modal-body">
+				<form role="form" action="<?php echo link_to('users', 'register') ?>" method="post">
+					<div class="form-group">
+						<label for="modal-register-username">Username: </label>
+						<input type="text" class="form-control" name="username" id="modal-register-username">
+					</div>
+					<div class="form-group">
+						<label for="modal-register-email">Email: </label>
+						<input type="email" class="form-control" name="email" id="modal-register-email">
+					</div>
+					<div class="form-group">
+						<label for="modal-register-pwd">Password: </label>
+						<input type="password" class="form-control" name="pwd" id="modal-register-pwd">
+					</div>
+					<div class="form-group">
+						<label for="modal-register-pwd-again">Retype password: </label>
+						<input type="password" class="form-control" name="pwd-again" id="modal-register-pwd-again">
+					</div>
+					<button type="submit" class="btn btn-primary">Register</button>
+				</form>
+			</div>
+		</div>
 	</div>
 </div>

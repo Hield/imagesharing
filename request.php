@@ -9,19 +9,41 @@
 			if (isset($_SERVER['PATH_INFO'])){
 				$path = $_SERVER['PATH_INFO'];
 				$comps = explode('/', $path);
-				if (sizeof($comps) > 4){
-					$this->controller = 'pages';
-					$this->action = 'error';
-				} else {
-					$this->controller = $comps[1];
-					$this->action = $comps[2];
-				}
-				if (sizeof($comps) == 4){
-					$this->id = $comps[3];
+				switch (sizeof($comps)){
+					case 2:
+						if ($comps[1] == ''){
+							$this->controller = 'images';
+							$this->action = 'index';
+						} else {
+							$this->controller = $comps[1];
+							$this->action = 'index';
+						}
+						break;
+					case 3:
+						$this->controller = $comps[1];
+						if ($comps[2] == ''){
+							$this->action = 'index';
+						} else {
+							$this->action = $comps[2];
+						}
+
+						break;
+					case 4:
+						$this->controller = $comps[1];
+						$this->action = $comps[2];
+						$this->id = $comps[3];
+						break;
+					default:
+						$this->controller = 'pages';
+						$this->action = 'error';
 				}
 			} else {
 				$this->controller = 'images';
 				$this->action = 'index';
+			}
+			if (sizeof(explode("//", $_SERVER['REQUEST_URI'])) > 1){
+				$this->controller = 'pages';
+				$this->action = 'error';
 			}
 		}
 

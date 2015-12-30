@@ -7,8 +7,12 @@
 				$controller = new PagesController();
 			break;
 			case 'images':
-			require_once('models/image.php');
+				require_once('models/image.php');
 				$controller = new ImagesController();
+			break;
+			case 'users':
+				require_once('models/user.php');
+				$controller = new UsersController();
 			break;
 		}
 
@@ -17,7 +21,8 @@
 	}
 
 	$controllers = array('pages'  => ['home'],
-						 'images' => ['index', 'show', 'add']);
+						 'images' => ['index', 'show', 'add', 'add_comment'],
+						 'users'  => ['login', 'register']);
 
 	if (array_key_exists($controller, $controllers)){
 		if (in_array($action, $controllers[$controller])){

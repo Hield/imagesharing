@@ -33,19 +33,21 @@ input[readonly] {
 }
 
 .alert{
-    color:red;
-    background-color:#F8F8F8;
-    padding:15px;
-    border:1px solid transparent;
-    border-radius:4px;
+  font-family: "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color:red;
+  background-color:#F8F8F8;
+  padding:15px;
+  border:1px solid transparent;
+  border-radius:4px;
 }
 
 .notice{
-    color:green;
-    background-color:#F8F8F8;
-    padding:15px;
-    border:1px solid transparent;
-    border-radius:4px;
+  font-family: "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color:green;
+  background-color:#F8F8F8;
+  padding:15px;
+  border:1px solid transparent;
+  border-radius:4px;
 }
 
 .thumbnail{
@@ -87,6 +89,57 @@ a span{
 }
 
 .image-div{
-  padding:50px;
+  padding:0px;
   border: 2px solid #DDDDDD;
+}
+
+.image-date{
+  font-family:monospace;
+  margin-top:8px;
+  margin-left:5px;
+  font-size:13px;
+}
+
+.comment-form-div{
+  padding:5px;
+  border: 2px solid #DDDDDD;
+}
+
+.comment-form-div form{
+  margin:0px;
+}
+
+.comments-div{
+  margin-top : 20px;
+  padding:5px;
+  border: 2px solid #DDDDDD;
+}
+
+.comment-header{
+  font-family:monospace;
+  font-size:10px;
+  margin:0px;
+}
+
+.comment-div{
+  padding:5px;
+  border:1px solid #DDDDDD;
+  margin:3px;
+  margin-bottom:5px;
+}
+
+.comment-content{
+  margin:0px;
+  margin-top:5px;
+  font-family: "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:15px;
+}
+
+#preview-img{
+  max-width: 100%;
+  max-height:200px;
+}
+
+form {
+  font-family: "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
