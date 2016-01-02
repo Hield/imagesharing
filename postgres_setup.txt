@@ -12,7 +12,9 @@ id varchar(255) primary key not null,
 user_id int references users(id) on delete cascade,
 img_src varchar(255) not null,
 created_on date not null,
-created_by varchar(40)
+created_by varchar(40),
+filename varchar(255) not null,
+likes int not null default 0
 );
 
 create table comments
