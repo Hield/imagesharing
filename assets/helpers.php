@@ -10,7 +10,7 @@
 	}
 
 	function absolute_path(){
-		return "http://localhost/git_repo/imagesharing/index.php/";
+		return "https://myimgshare.herokuapp.com/index.php/";
 	}
 
 

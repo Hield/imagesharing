@@ -1,14 +1,31 @@
+create table users
+(
+id serial primary key not null,
+username varchar(40) not null,
+pwd varchar(150) not null,
+permission varchar(30) not null default 'user'
+)
+
 create table images
 (
-id serial primary key,
+id varchar(255) primary key not null,
+user_id int references users(id) on delete cascade,
 img_src varchar(255) not null,
 created_on date not null,
-created_by varchar(255)
+created_by varchar(40)
 );
 
 create table comments
 (
-image_id int not null,
-user_id int,
+image_id varchar(255) not null references images(id) on delete cascade,
+user_id int not null references users(id) on delete cascade,
 created_on date not null,
+created_by varchar(40),
+comment varchar(255) not null
 );
+
+create table likes
+(
+image_id varchar(255) not null references images(id) on delete cascade,
+user_id int not null references users(id) on delete cascade
+)
