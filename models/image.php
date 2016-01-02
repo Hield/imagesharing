@@ -78,6 +78,7 @@
 				return false;
 			}
 			$image_list = join(',', $list);
+			echo $image_list;
 			$req = $db->query('SELECT * FROM images WHERE id IN (' . $image_list . ')');
 			if (empty($req->fetch())){
 				return false;
