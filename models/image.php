@@ -78,7 +78,6 @@
 				return false;
 			}
 			$image_list = join(',', $list);
-			echo $image_list;
 			$req = $db->query('SELECT * FROM images WHERE id IN (' . $image_list . ')');
 			if (empty($req->fetch())){
 				return false;
@@ -86,6 +85,7 @@
 			foreach($req->fetchAll() as $image){
 				$images[] = new Image($image['id'], $image['user_id'], $image['img_src'], $image['created_on'], $image['created_by'], $image['filename'], $image['likes']);
 			}
+			echo sizeof($images);
 			return $images;
 		}
 
