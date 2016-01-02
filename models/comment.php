@@ -35,7 +35,7 @@
 				$req->execute(array(':image_id' => $image_id, ':user_id' => $_SESSION['user_id'], ':created_by' => $_SESSION['username'], ':comment' => $comment));
 			} else {
 				$req = $db->prepare('INSERT INTO comments(image_id, created_on, created_by, comment) VALUES(:image_id, current_date, :created_by, :comment)');
-				$req->execute(array(':image_id' => $image_id, ':created_by' => "anonymous", ':comment' => $comment));
+				$req->execute(array(':image_id' => $image_id, ':created_by' => 'anonymous', ':comment' => $comment));
 			}
 		}
 

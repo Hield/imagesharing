@@ -56,7 +56,8 @@
 		public function like(){
 			if (!isset($_SESSION['user_id'])){
 				$_SESSION['alert'] = "You must register in order to like an image";
-				redirect_to('images', 'index');
+				header('Location: '. $_SESSION['url']);
+				die();
 			}
 			Image::like(Request::get_id());
 			header('Location: '. $_SESSION['url']);
