@@ -20,7 +20,7 @@ likes int not null default 0
 create table comments
 (
 image_id varchar(255) not null references images(id) on delete cascade,
-user_id int not null references users(id) on delete cascade,
+user_id int references users(id) on delete cascade,
 created_on date not null,
 created_by varchar(40),
 comment varchar(255) not null

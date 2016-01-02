@@ -6,7 +6,6 @@
 		public $created_on;
 		public $created_by;
 		public $comment;
-		private $username;
 
 		public function __construct($image_id, $user_id, $created_on, $created_by, $comment){
 			$this->image_id = $image_id;
@@ -37,16 +36,6 @@
 				$req = $db->prepare('INSERT INTO comments(image_id, created_on, created_by, comment) VALUES(:image_id, current_date, :created_by, :comment)');
 				$req->execute(array(':image_id' => $image_id, ':created_by' => 'anonymous', ':comment' => $comment));
 			}
-		}
-
-		public function get_user(){
-			if (!isset($this->username)){
-				$db = Db::getInstance();
-				$req = $db->prepare('SELECT username FROM users WHERE id = :id');
-				$req->execute(array(':id' => $this->user_id));
-				$this->username = $req->fetch()['username'];
-			}
-			return $this->username;
 		}
 	}
 ?>
