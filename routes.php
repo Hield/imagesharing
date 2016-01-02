@@ -21,8 +21,8 @@
 	}
 
 	$controllers = array('pages'  => ['home'],
-						 'images' => ['index', 'show', 'add', 'add_comment'],
-						 'users'  => ['login', 'register']);
+						 'images' => ['index', 'show', 'add', 'add_comment', 'like', 'unlike'],
+						 'users'  => ['login', 'register', 'logout', 'images', 'favorites']);
 
 	if (array_key_exists($controller, $controllers)){
 		if (in_array($action, $controllers[$controller])){

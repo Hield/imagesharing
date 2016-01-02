@@ -39,5 +39,17 @@
 				return new User($user['id'], $user['username'], $user['permission']);
 			}
 		}
+
+		public static function find_by_username($username){
+			$db = Db::getInstance();
+			$req = $db->prepare('SELECT * FROM users WHERE username = :username');
+			$req->execute(array(':username' => $username));
+			$user = $req->fetch();
+			if (empty($user)){
+				return false;
+			} else {
+				return new User($user['id'], $user['username'], $user['permission']);
+			}
+		}
 	}
 ?>

@@ -18,6 +18,10 @@
 		return absolute_path() . "$controller/$action";
 	}
 
+	function link_to_user($username, $action){
+		return absolute_path() . "users/$username/$action";
+	}
+
 	function redirect_to($controller, $action){
 		header("Location: " . link_to($controller, $action));
 		die();

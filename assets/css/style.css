@@ -2,6 +2,10 @@ html{
 	height: 100%;
 }
 
+a{
+  font-family: "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
 body{
 	padding-top: 70px;
 	height: 100%;
@@ -58,17 +62,6 @@ input[readonly] {
   border-width: 2px;
 }
 
-.thumbnail-img{
-  position: absolute;
-  max-height:200px;
-  max-width: 200px;
-  top: 0;
-  bottom:0;
-  left:0;
-  right:0;
-  margin:auto;
-}
-
 .big-img{
   max-width:100%;
 }
@@ -76,16 +69,6 @@ input[readonly] {
 .caption{
   position:absolute;
   bottom:0;
-}
-
-a span{
-  position:absolute; 
-  width:100%;
-  height:100%;
-  top:0;
-  left: 0;
-
-  z-index: 1;
 }
 
 .image-div{
@@ -138,8 +121,91 @@ a span{
 #preview-img{
   max-width: 100%;
   max-height:200px;
+  float:right;
+  border: 2px solid #DDDDDD;
 }
 
 form {
   font-family: "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.caret{
+  display:inline-block;
+}
+
+.form-warning{
+  color:red;
+}
+
+.preview-header{
+  margin-left:15px;
+}
+
+.modal-preview hr{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+textarea{
+  max-width:100%;
+}
+
+.image-show-container{
+  margin-top: 22px;
+}
+
+.thumbnail i{
+  position:absolute;
+  bottom:10px;
+  left:10px;
+}
+
+.link-thumbs-up:link, .link-thumbs-up:visited, .link-thumbs-up:hover, .link-thumbs-up:active{
+  color:black;
+  text-decoration: none;
+}
+
+.link-thumbs-down:link, .link-thumbs-down:visited, .link-thumbs-down:hover, .link-thumbs-down:active{
+  color:blue;
+  text-decoration: none;
+}
+
+.text-thumbs-up{
+  font-family: "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
+  position:absolute;
+  bottom:1px;
+  right:10px;
+  font-weight: bold;
+}
+
+label a:link, a:visited, a:hover, a:active{
+  color:white;
+  text-decoration: none;
+}
+
+.show-image-text-like{
+  display:inline-block;
+  font-family: "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  margin-left:10px;
+}
+
+.show-image-thumbs-up{
+  margin-left :10px;
+}
+
+a.users-link{
+  display:inline-block;
+  margin-bottom:20px;
+  font-size:20px;
+}
+
+.users-link:link, .users-link:visited, .users-link:active{
+  color:#4582ec;
+  text-decoration: none;
+}
+
+.users-link:hover{
+  color:blue;
+  text-decoration: none;
 }

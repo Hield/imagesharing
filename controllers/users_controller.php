@@ -30,5 +30,45 @@
 				redirect_to('images', 'index');
 			}
 		}
+
+		public function logout(){
+			session_unset();
+			$_SESSION['notice'] = "Logged out.";
+			redirect_to('images', 'index');
+		}
+
+		public function images(){
+			$username = Request::get_id();
+			$user = User::find_by_username($username);
+			if (empty($user)){
+				redirect_to('pages', 'error');
+			}			
+			$check = true;
+			if (!isset($_SESSION['username'])){
+				$check = false;
+			} else if ($username != $_SESSION['username']){
+				$check = false;
+			}
+			require_once('models/image.php');
+			$images = Image::find_by_username($username);
+			require_once('views/users/images.php');
+		}
+
+		public function favorites(){
+			$username = Request::get_id();
+			$user = User::find_by_username($username);
+			if (empty($user)){
+				redirect_to('pages', 'error');
+			}			
+			$check = true;
+			if (!isset($_SESSION['username'])){
+				$check = false;
+			} else if ($username != $_SESSION['username']){
+				$check = false;
+			}
+			require_once('models/image.php');
+			$images = Image::find_by_favorite($user->id);
+			require_once('views/users/favorites.php');
+		}
 	}
 ?>

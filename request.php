@@ -45,6 +45,11 @@
 				$this->controller = 'pages';
 				$this->action = 'error';
 			}
+			if ($comps[1] == 'users'){
+				$temp = $this->action;
+				$this->action = $this->id;
+				$this->id = $temp;
+			}
 		}
 
 		public static function get_controller(){

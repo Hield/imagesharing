@@ -15,7 +15,7 @@
 			<!-- Modal body -->
 
 			<div class="modal-body">
-				<form role="form" action="<?php echo link_to('images', 'add') ?>" method="post" enctype="multipart/form-data">
+				<form class="add-image-form" role="form" action="<?php echo link_to('images', 'add') ?>" method="post" enctype="multipart/form-data">
 					<div class="form-group">
 						<div class="input-group">
 							<span class="input-group-btn">
@@ -26,12 +26,21 @@
 							<input type="text" class="form-control" readonly>
 						</div>
 					</div>
-					<button type="submit" name="submit" class="btn btn-default">Upload</button>
+					<p class="add-image-form-warning form-warning">Please choose an image</p>
+					<button type="submit" name="submit" class="btn btn-default" disabled="">Upload</button>
 				</form>
 			</div>
 
 			<div class="modal-preview">
-				<img id="preview-img" src="#" alt="preview image"/>
+				<hr>
+				<div class="row">
+					<div class="col-xs-3">
+						<h3 class="preview-header">Preview</h3>
+					</div>
+					<div class="col-xs-9">
+						<img id="preview-img" src="#" alt="preview image"/>	
+					</div>
+				</div>		
 			</div>
 		</div>
 
@@ -39,7 +48,7 @@
 </div>
 
 <!-- Login form modal -->
-<div id="login_form" class="modal fade" role="dialog">
+<div id="modal-login-form" class="modal fade" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<!-- Modal header -->
@@ -50,15 +59,17 @@
 
 			<!-- Modal body -->
 			<div class="modal-body">
-				<form role="form" action="<?php echo link_to('users', 'login') ?>" method="post">
+				<form id="login-form" role="form" action="<?php echo link_to_user('temp', 'login') ?>" method="post">
 					<div class="form-group">
 						<label for="modal-login-username">Username: </label>
 						<input type="text" class="form-control" name="username" id="modal-login-username">
 					</div>
+					<p class="login-form-username-warning form-warning"></p>
 					<div class="form-group">
 						<label for="modal-login-pwd">Password: </label>
 						<input type="password" class="form-control" name="pwd" id="modal-login-pwd">
 					</div>
+					<p class="login-form-pwd-warning form-warning"></p>
 					<button type="submit" class="btn btn-success">Log in</button>
 				</form>
 			</div>
@@ -67,7 +78,7 @@
 </div>
 
 <!-- Register form modal -->
-<div id="register_form" class="modal fade" role="dialog">
+<div id="modal-register-form" class="modal fade" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<!-- Modal header -->
@@ -78,23 +89,27 @@
 
 			<!-- Modal body -->
 			<div class="modal-body">
-				<form role="form" action="<?php echo link_to('users', 'register') ?>" method="post">
+				<form id="register-form" role="form" action="<?php echo link_to_user('temp', 'register') ?>" method="post">
 					<div class="form-group">
 						<label for="modal-register-username">Username: </label>
 						<input type="text" class="form-control" name="username" id="modal-register-username">
 					</div>
+					<p class="register-form-username-warning form-warning"></p>
 					<div class="form-group">
 						<label for="modal-register-email">Email: </label>
 						<input type="email" class="form-control" name="email" id="modal-register-email">
 					</div>
+					<p class="register-form-email-warning form-warning"></p>
 					<div class="form-group">
 						<label for="modal-register-pwd">Password: </label>
 						<input type="password" class="form-control" name="pwd" id="modal-register-pwd">
 					</div>
+					<p class="register-form-pwd-warning form-warning"></p>
 					<div class="form-group">
 						<label for="modal-register-pwd-again">Retype password: </label>
 						<input type="password" class="form-control" name="pwd-again" id="modal-register-pwd-again">
 					</div>
+					<p class="register-form-pwd-again-warning form-warning"></p>
 					<button type="submit" class="btn btn-primary">Register</button>
 				</form>
 			</div>

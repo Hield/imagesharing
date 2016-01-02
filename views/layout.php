@@ -3,6 +3,7 @@
 	require_once('assets/init.php');
 	require_once('assets/helpers.php');
 ?>
+<!doctype html>
 <html>
 	<head>
 		<title>Image Share</title>
@@ -22,7 +23,7 @@
 		<?php } ?>
 
 		<?php require_once('routes.php'); ?>
-
+		<?php $_SESSION['url'] = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']; ?>
 		<?php require_once('assets/modals.php'); ?>
 
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

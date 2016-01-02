@@ -33,8 +33,23 @@
 			<!-- Right navigation bar -->
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#" data-toggle="modal" data-target="#login_form">Log in</a></li>
-				<li><a href="#" data-toggle="modal" data-target="#register_form">Register</a></li>
+				<?php if (isset($_SESSION['user_id'])){ ?>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+							<?php echo $_SESSION["username"]; ?>	
+							<span class="caret"></span>					
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="<?php echo link_to_user($_SESSION['username'],'images'); ?>">Images</a></li>
+							<li><a href="<?php echo link_to_user($_SESSION['username'],'favorites'); ?>">Favorites</a></li>
+							<li class="divider"></li>
+							<li><a href="<?php echo link_to_user('temp','logout'); ?>">Logout</a></li>
+						</ul>
+					</li>
+				<?php } else { ?>
+					<li><a href="#" data-toggle="modal" data-target="#modal-login-form">Log in</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#modal-register-form">Register</a></li>
+				<?php } ?>
 			</ul>
 
 		</div>

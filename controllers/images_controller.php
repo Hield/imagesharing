@@ -16,10 +16,7 @@
 			if (!$_FILES['image']['name']){
 				return call('pages', 'error');
 			}
-			$target_dir = "assets/img/";
-			$target_file = $target_dir . basename($_FILES['image']['name']);
 			$uploadOk = 1;
-			$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
 			// check if image file is a actual image or fake image
 
@@ -35,8 +32,9 @@
 			if ($uploadOk == 0){
 				$_SESSION['alert'] = $_SESSION['alert'] . " Sorry, your file was not uploaded.";
 			} else {
-				if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)){
-					Image::create($target_file);
+				$image = \Cloudinary\Uploader::upload($_FILES["image"]["tmp_name"]);
+				if (!empty($image)){
+					Image::create($image['public_id'], $image['url'], basename($image['url']));
 					$_SESSION['notice'] = "The image " . basename($_FILES['image']['name']) . " has been uploaded.";
 				} else {
 					$_SESSION['alert'] = "Sorry, there was an error uploading your file. ";	
@@ -53,6 +51,25 @@
 			Comment::create($_POST['image_id'], $_POST['comment']);
 			$_SESSION['notice'] = "Comments saved successfully";
 			redirect_to('images', 'show/' . $_POST['image_id']);
+		}
+
+		public function like(){
+			if (!isset($_SESSION['user_id'])){
+				$_SESSION['alert'] = "You must register in order to like an image";
+				redirect_to('images', 'index');
+			}
+			Image::like(Request::get_id());
+			header('Location: '. $_SESSION['url']);
+			die();
+		}
+
+		public function unlike(){
+			if (!isset($_SESSION['user_id'])){
+				redirect_to('pages', 'error');
+			}
+			Image::unlike(Request::get_id());
+			header('Location: '. $_SESSION['url']);
+			die();
 		}
 	}
 ?>

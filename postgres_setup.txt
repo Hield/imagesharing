@@ -1,0 +1,14 @@
+create table images
+(
+id serial primary key,
+img_src varchar(255) not null,
+created_on date not null,
+created_by varchar(255)
+);
+
+create table comments
+(
+image_id int not null,
+user_id int,
+created_on date not null,
+);
