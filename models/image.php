@@ -84,6 +84,7 @@
 			if (empty($req->fetch())){
 				return false;
 			}
+			echo sizeof($req->fetchAll());
 			foreach($req->fetchAll() as $image){
 				$images[] = new Image($image['id'], $image['user_id'], $image['img_src'], $image['created_on'], $image['created_by'], $image['filename'], $image['likes']);
 			}
