@@ -31,10 +31,10 @@
 		public static function create($image_id, $comment){
 			$db = Db::getInstance();
 			if (isset($_SESSION['user_id'])){
-				$req = $db->prepare('INSERT INTO comments(image_id, user_id, created_on, created_by, comment) VALUES(:image_id, :user_id, CURDATE(), :created_by, :comment)');
+				$req = $db->prepare('INSERT INTO comments(image_id, user_id, created_on, created_by, comment) VALUES(:image_id, :user_id, current_date, :created_by, :comment)');
 				$req->execute(array(':image_id' => $image_id, ':user_id' => $_SESSION['user_id'], ':created_by' => $_SESSION['username'], ':comment' => $comment));
 			} else {
-				$req = $db->prepare('INSERT INTO comments(image_id, created_on, created_by, comment) VALUES(:image_id, CURDATE(), :created_by, :comment)');
+				$req = $db->prepare('INSERT INTO comments(image_id, created_on, created_by, comment) VALUES(:image_id, current_date, :created_by, :comment)');
 				$req->execute(array(':image_id' => $image_id, ':created_by' => "anonymous", ':comment' => $comment));
 			}
 		}

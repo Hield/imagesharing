@@ -34,10 +34,10 @@
 		public static function create($id, $img_src, $filename){
 			$db = Db::getInstance();
 			if (isset($_SESSION['user_id'])){
-				$req = $db->prepare('INSERT INTO images(id, user_id, img_src, created_on, created_by, filename, likes) VALUES(:id, :user_id, :img_src, CURDATE(), :created_by, :filename, 0)');
+				$req = $db->prepare('INSERT INTO images(id, user_id, img_src, created_on, created_by, filename, likes) VALUES(:id, :user_id, :img_src, current_date, :created_by, :filename, 0)');
 				$req->execute(array(':id' => $id, ':user_id' => $_SESSION['user_id'], ':img_src' => $img_src, ':created_by' => $_SESSION['username'], ':filename' => $filename));
 			} else {
-				$req = $db->prepare('INSERT INTO images(id, img_src, created_on, created_by, filename, likes) VALUES(:id, :img_src, CURDATE(), :created_by, :filename, 0)');
+				$req = $db->prepare('INSERT INTO images(id, img_src, created_on, created_by, filename, likes) VALUES(:id, :img_src, current_date, :created_by, :filename, 0)');
 				$req->execute(array(':id' => $id, ':img_src' => $img_src, ':created_by' => "anonymous", ':filename' => $filename));
 			}
 		}
