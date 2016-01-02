@@ -72,14 +72,14 @@
 			$req = $db->prepare('SELECT * FROM likes WHERE user_id = :user_id');
 			$req->execute(array(':user_id' => $user_id));
 			foreach($req->fetchAll() as $like){
-				$list[] = '"' . $like['image_id'] . '"';
+				$list[] = "'" . $like['image_id'] . "'";
 			}
 			if (sizeof($list) == 0){
 				return false;
 			}
 			$image_list = join(',', $list);
 			$req = $db->query('SELECT * FROM images WHERE id IN (' . $image_list . ')');
-			if (empty($req)){
+			if (empty($req->fetch())){
 				return false;
 			}
 			foreach($req->fetchAll() as $image){
