@@ -8,7 +8,7 @@
 	<head>
 		<title>Image Share</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="https://bootswatch.com/readable/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="<?php echo relative_path() ?>assets/css/style.css">
 	</head>
